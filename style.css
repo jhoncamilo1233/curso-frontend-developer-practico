@@ -154,7 +154,7 @@
     color: var(--hospital-green) !important;
   }
 /* carrito aside */
-aside {
+.product-detail {
     background-color: var(--white);
     width: 360px;
     padding: 0  24px;
