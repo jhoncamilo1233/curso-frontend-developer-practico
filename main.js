@@ -7,7 +7,9 @@ const menuHomeIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 
 const menuCarritoIco = document.querySelector(".navbar-shopping-cart");
-const productoAside = document.querySelector(".product-detail");
+const productoAsideShopping = document.querySelector("#shoppingCartContainer");
+
+const productDeataiContainer = document.querySelector('#ProductDetail');
 
 const cardsConatiner = document.querySelector('.cards-container')
 
@@ -20,10 +22,10 @@ menuCarritoIco.addEventListener("click", toggleCarritoIco);
 
 //creamos una funcion para poder que este inactivo o no ejemplo ocultar o abrir
 function toggleDesktopMenu() {
-  const isAsideClosed = productoAside.classList.contains("inactive");
+  const isAsideClosed = productoAsideShopping.classList.contains("inactive");
 
   if (!isAsideClosed) {
-    productoAside.classList.add("inactive");
+    productoAsideShopping.classList.add("inactive");
   }
   mobileMenu.classList.toggle("inactive");
 
@@ -31,7 +33,7 @@ function toggleDesktopMenu() {
 }
 
 function toggleMobileMenu() {
-  const isAsideClosed = productoAside.classList.contains("inactive");
+  const isAsideClosed = productoAsideShopping.classList.contains("inactive");
   if (!isAsideClosed) {
     productoAside.classList.add("inactive");
   }
@@ -43,7 +45,10 @@ function toggleCarritoIco() {
   if (!isMobileClosed) {
     mobileMenu.classList.add("inactive");
   }
-  productoAside.classList.toggle("inactive");
+  productoAsideShopping.classList.toggle("inactive");
+}
+function openProductDeta(){
+  productDeataiContainer.classList.remove('inactive')
 }
 
 const productList = [];
@@ -97,6 +102,7 @@ function productos(arr){
         const productImg = document.createElement('img');
         // llamamos product = {name .price, imegen} -> product.imagen
         productImg.setAttribute('src',product.imagen);
+        productImg.addEventListener('click',openProductDeta);
     
         //creamos la infromacion del producto
         const productInfo = document.createElement ('div');
