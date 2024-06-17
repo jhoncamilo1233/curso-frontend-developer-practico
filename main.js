@@ -5,6 +5,7 @@ const desktopMenu = document.querySelector(".desktop-menu"); // esto es la que q
 
 const menuHomeIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 const menuCarritoIco = document.querySelector(".navbar-shopping-cart");
 const productoAsideShopping = document.querySelector("#shoppingCartContainer");
@@ -19,6 +20,8 @@ emailMenu.addEventListener("click", toggleDesktopMenu);
 menuHomeIcon.addEventListener("click", toggleMobileMenu);
 
 menuCarritoIco.addEventListener("click", toggleCarritoIco);
+
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside);
 
 //creamos una funcion para poder que este inactivo o no ejemplo ocultar o abrir
 function toggleDesktopMenu() {
@@ -35,20 +38,31 @@ function toggleDesktopMenu() {
 function toggleMobileMenu() {
   const isAsideClosed = productoAsideShopping.classList.contains("inactive");
   if (!isAsideClosed) {
-    productoAside.classList.add("inactive");
+    productoAsideShopping.classList.add("inactive");
   }
   mobileMenu.classList.toggle("inactive");
 }
+closeProductDetailAside();
 
 function toggleCarritoIco() {
   const isMobileClosed = mobileMenu.classList.contains("inactive");
   if (!isMobileClosed) {
     mobileMenu.classList.add("inactive");
   }
+
+  const isProductDeatilClosed = productDeataiContainer.classList.contains("inactive");
+  if (!isProductDeatilClosed) {
+    productDeataiContainer.classList.add("inactive");
+  }
+
   productoAsideShopping.classList.toggle("inactive");
 }
 function openProductDeta(){
-  productDeataiContainer.classList.remove('inactive')
+    productoAsideShopping.classList.add('inactive')
+    productDeataiContainer.classList.remove('inactive')
+}
+function closeProductDetailAside (){
+    productDeataiContainer.classList.add('inactive')
 }
 
 const productList = [];
@@ -66,21 +80,6 @@ productList.push({
     nombre: 'bike',
     precio : 120,
     imagen : 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-productList.push({
-    nombre: 'bike',
-    precio : 120,
-    imagen : 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-productList.push({
-    nombre: 'bike',
-    precio : 120,
-    imagen : 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-productList.push({
-    nombre: 'tabla',
-    precio : 150,
-    imagen : 'https://www.labskateboarding.com/wp-content/uploads/2021/06/DARK-SKULL-WEB-LQ-SOLO-DECK.jpg'
 });
 productList.push({
     nombre: 'bike',
@@ -136,7 +135,6 @@ function productos(arr){
         productCard.appendChild(productInfo);
         
         cardsConatiner.appendChild(productCard)
-    
     }
 }
 productos(productList);

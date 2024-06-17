@@ -124,10 +124,12 @@
   }
 /* menu mobile */
 .mobile-menu {
-    padding: 24px;
     position: absolute;
-    top: 60px;
-  }
+    top: 70px;
+    background-color: var(--white);
+    width: 90%;
+    height: 700px;
+}
   .mobile-menu a {
     text-decoration: none;
     color: var(--black);
